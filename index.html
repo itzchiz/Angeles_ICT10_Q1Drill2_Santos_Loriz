@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=IBM+Plex+Serif:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+<script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+<style>
+  :root{
+    --pink-bg: #ffd6ec;
+    --pink-hot: #ff2d95;
+    --pink-deep: #c2126b;
+    --pink-card: #fff0f8;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--pink-bg);
+    font-family: "IBM Plex Serif", serif;
+    color: var(--pink-deep);
+    padding: 40px 16px;}
+
+  h1{
+    font-family: "Playfair Display", serif;
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: var(--pink-hot);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .card{
+    background: var(--pink-card);
+    border: 3px solid var(--pink-hot);
+    border-radius: 28px;
+    padding: 28px 32px;
+    max-width: 380px;
+    width: 100%;
+  }
+
+  .field{
+    margin-bottom: 18px;
+  }
+
+  label{
+    display: block;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--pink-deep);
+  }
+
+  input, select{
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid var(--pink-hot);
+    border-radius: 14px;
+    font-family: "IBM Plex Serif", serif;
+    font-size: 1rem;
+    color: var(--pink-deep);
+    background: var(--white);
+    outline: none;
+  }
+
+  input:focus, select:focus{
+    border-color: var(--pink-deep);
+  }
+
+  button{
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px;
+    border: none;
+    border-radius: 18px;
+    background: var(--pink-hot);
+    color: var(--white);
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  button:hover{
+    background: var(--pink-deep);
+    transform: scale(1.03);
+  }
+
+  #output{
+    margin-top: 20px;
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    color: var(--pink-hot);
+    min-height: 1.4em;
+  }
+</style>
+</head>
+<body>
+
+  <h1>Calculator</h1>
+
+  <div class="card">
+    <div class="field">
+      <label for="input1">First number</label>
+      <input type="text" id="input1" placeholder="e.g. 12">
+    </div>
+
+    <div class="field">
+      <label for="input2">Second number</label>
+      <input type="text" id="input2" placeholder="e.g. 4">
+    </div>
+
+    <div class="field">
+      <label for="operations">Operation</label>
+      <select id="operations">
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+      </select>
+    </div>
+
+    <button py-click="compute">Compute</button>
+
+    <div id="output">Result will appear here.</div>
+  </div>
+
+<py-script src="main.py"></py-script>
+
+</body>
+</html>
